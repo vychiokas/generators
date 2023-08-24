@@ -17,3 +17,5 @@ print(square_numbers([1, 2, 3]))
 
 for number in square_numbers_generator([1, 2, 3]):
     print(number)
+
+print(list(square_numbers_generator([1, 2, 3])))

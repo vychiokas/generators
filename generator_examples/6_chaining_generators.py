@@ -1,4 +1,4 @@
-from typing import Generator
+from typing import Generator, Union
 
 from utils import benchmark
 
@@ -13,6 +13,11 @@ def fib_gen():
         count += 1
 
 
+@benchmark
+def double(number: Union[int, float]):
+    yield number**2
+    
+    
 # Careful - infinite generation.. Duuhh!
-for number in fib_gen():
+for number in double(fib_gen()):
     print(number)
