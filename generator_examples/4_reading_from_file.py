@@ -19,3 +19,6 @@ def file_reader(file_name: str) -> str:
 text_generator = file_reader_generator("data/Individual_Incident_2004.csv")
 materialized_text = materialize_generator(text_generator)
 text = file_reader("data/Individual_Incident_2004.csv")
+
+print(materialized_text[:50])
+print(text[:50])
