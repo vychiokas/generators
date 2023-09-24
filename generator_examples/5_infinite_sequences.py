@@ -12,18 +12,18 @@ def infinite_sequence() -> Generator[int, None, None]:
 
 
 @benchmark
-def fibonacci_sequence():
+def fibonacci_sequence() -> Generator[int, None, None]:
     a, b = 0, 1
     count = 0
-    while count < 10:
+    while count < 10:  # while True: for infinite loop
         yield a
         a, b = b, a + b
         count += 1
 
 
 # Careful - infinite generation.. Duuhh!
-# for number in fibonacci_sequence():
-#     print(number)
+for number in fibonacci_sequence():
+    print(number)
 
 fibonacci = fibonacci_sequence()
 

@@ -1,10 +1,10 @@
-from typing import Union
+from typing import Generator
 
 from utils import benchmark
 
 
 @benchmark
-def fib_gen():
+def fib_gen() -> Generator[int, None, None]:
     a, b = 0, 1
     count = 0
     while count < 10:
@@ -14,10 +14,10 @@ def fib_gen():
 
 
 @benchmark
-def double(number: Union[int, float]):
-    yield number**2
+def double(number_generator: Generator[int, None, None]):
+    for num in number_generator:
+        yield num * num
 
 
-# Careful - infinite generation.. Duuhh!
 for number in double(fib_gen()):
     print(number)

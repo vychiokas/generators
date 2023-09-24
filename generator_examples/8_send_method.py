@@ -11,10 +11,11 @@ def sequence(start_number: int = 100) -> Generator[int, int, None]:
             i += 1
 
 
-def some_generator() -> Generator[int, int, None]:
+def some_generator() -> Generator[None, str, None]:
     while True:
         received_value = yield
         print("Received:", received_value)
+        yield received_value
 
 
 my_sequence = sequence(1)
