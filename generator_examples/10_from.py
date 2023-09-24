@@ -15,17 +15,17 @@ def simple_generator() -> Generator[str, None, None]:
     yield "End"
 
 
-def main_generator() -> Generator[str, None, None]:
+def fancy_generator() -> Generator[str, None, None]:
     yield "Start"
     yield from sub_generator()  # Delegates to sub_generator
     yield "End"
 
 
-# Iterating over main_generator
+# Iterating over fancy_generator
 for item in simple_generator():
     print(item)
 
 print("-" * 20)
 
-for item in main_generator():
+for item in fancy_generator():
     print(item)

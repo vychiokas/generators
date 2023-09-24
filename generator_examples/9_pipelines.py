@@ -5,7 +5,7 @@ from typing import Dict, Generator, List
 FILE_PATH = "data/speech.txt"
 
 file_lines = (line for line in open(FILE_PATH, "r", encoding="utf8"))
-list_line = (s.rstrip().split(",") for s in file_lines)
+list_line = (s.rstrip().split(" ") for s in file_lines)
 
 next(list_line)
 print(next(list_line))

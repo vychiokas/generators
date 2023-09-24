@@ -7,7 +7,7 @@ DATABASE_NAME = "demo.db"
 TABLE_NAME = "test"
 
 
-def generate_database_records(
+def get_data_in_batches(
     cursor: sqlite3.Cursor, table_name: str = TABLE_NAME, batchsize: int = 2
 ) -> Generator[int, None, None]:
     cursor.execute(f"select * from {table_name}")
@@ -43,6 +43,6 @@ if __name__ == "__main__":
     conn = sqlite3.connect(DATABASE_NAME)
     cursor = conn.cursor()
 
-    my_generator = generate_database_records(cursor=cursor, batchsize=5)
+    my_generator = get_data_in_batches(cursor=cursor, batchsize=5)
     for result in my_generator:
         print(result)
